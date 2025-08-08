@@ -22,7 +22,8 @@ setup(
     version="0.0.1",
     author="Sahil Raval",
     author_email="ravalsahil1311@gmail.com",
-    packeges=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     install_requires=get_requirements(),
 )
 
