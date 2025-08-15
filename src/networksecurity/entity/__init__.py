@@ -1,2 +1,6 @@
-from .config_entity import DataIngestionConfig, TrainingPipelineConfig
-from .artifact_entity import DataIngestionArtifact
+from .config_entity import (
+    DataIngestionConfig,
+    TrainingPipelineConfig,
+    DataValidationConfig,
+)
+from .artifact_entity import DataIngestionArtifact, DataValidationArtifact
