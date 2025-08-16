@@ -1,9 +1,13 @@
 import os
 import sys
 import yaml
+import pickle
 
+import numpy as np
 
 from networksecurity import get_logger, NetworkSecurityException
+
+logger = get_logger(__name__)
 
 
 def read_yaml_file(file_path: str) -> dict:
@@ -22,5 +26,31 @@ def write_yaml_file(file_path: str, content: object, replace: bool) -> None:
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w") as file:
             yaml.dump(content, file)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
+
+
+def save_numpy_array_data(file_path: str, array: np.array):
+    """
+    Save Numpy array data to a file
+    file_path: str location to file to save
+    array: np.array data to save
+    """
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        with open(file_path, "wb") as file:
+            np.save(file, array)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
+
+
+def save_object(file_path: str, obj: object) -> None:
+    try:
+        logger.info(f"Saving object to {file_path}")
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "wb") as file:
+            pickle.dump(obj, file)
+        logger.info("Saved object")
     except Exception as e:
         raise NetworkSecurityException(e, sys)
