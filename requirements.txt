@@ -8,4 +8,9 @@ pymongo==4.14.0
 certifi==2025.8.3
 dill==0.4.0
 pyaml==25.7.0
+mlflow==3.2.0
+dagshub==0.6.3
+fastapi==0.116.1
+uvicorn==0.35.0
+python-multipart==0.0.20
 -e .

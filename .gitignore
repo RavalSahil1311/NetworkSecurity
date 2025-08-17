@@ -206,3 +206,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 Artifacts
+mlruns
+valid_data
+prediction_output\output.csv
